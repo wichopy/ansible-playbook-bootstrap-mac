@@ -8,4 +8,4 @@ jobs:
 
 script:
   - make install_pip
-  - which pip
+  - hash pip 2>/dev/null || { echo >&2 "pip not installed. Aborting."; exit 1; }
