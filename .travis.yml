@@ -9,3 +9,11 @@ jobs:
 script:
   - make install_pip
   - hash pip 2>/dev/null || { echo >&2 "pip not installed. Aborting."; exit 1; }
+  - which pip
+  - pip --version
+
+  - make install_ansible
+  - hash ansible 2>/dev/null || { \
+      echo >&2 "ansible not installed. Aborting."; exit 1; }
+  - which ansible
+  - ansible --version

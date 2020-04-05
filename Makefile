@@ -2,6 +2,7 @@ PIP_FOUND := $(shell command -v pip 2> /dev/null)
 
 .PHONY: \
 	install_pip
+	install_ansible
 
 install_pip:
 ifndef PIP_FOUND
@@ -9,3 +10,6 @@ ifndef PIP_FOUND
 	python get-pip.py --user --force-reinstall
 	rm -f get-pip.py
 endif
+
+install_ansible:
+	pip install --user --ignore-installed six ansible
