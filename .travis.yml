@@ -4,4 +4,8 @@ jobs:
     - name: High Sierra
       os: osx
       osx_image: xcode10.1
-      language: minimal      
+      language: minimal
+
+script:
+  - make install_pip
+  - which pip
