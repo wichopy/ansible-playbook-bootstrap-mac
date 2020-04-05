@@ -4,4 +4,8 @@ jobs:
     - name: High Sierra
       os: osx
       osx_image: xcode10.1
-      language: minimal      
+      language: minimal
+
+script:
+  - make install_pip
+  - hash pip 2>/dev/null || { echo >&2 "pip not installed. Aborting."; exit 1; }
