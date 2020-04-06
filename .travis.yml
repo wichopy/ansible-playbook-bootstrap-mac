@@ -37,8 +37,3 @@ script:
   - xcode-select -p
 
   - make install_homebrew
-  - export PATH="/usr/local/bin:$PATH"
-  - echo $PATH
-  - brew --version
-
-  - make clean
