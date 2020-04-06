@@ -6,7 +6,7 @@ jobs:
       osx_image: xcode10.1
       language: minimal
 
-pre_install:
+before_install:
   - URL=https://raw.githubusercontent.com/Homebrew/install/master/uninstall
   - curl -sLO "${URL}"
   - chmod +x uninstall
