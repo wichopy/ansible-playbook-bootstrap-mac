@@ -37,8 +37,6 @@ script:
 
   - make install_homebrew
   - export PATH="/usr/local/bin:$PATH"
-  - hash brew 2>/dev/null || { \
-      echo >&2 "brew not installed. Aborting."; exit 1; }
   - brew --version
 
   - make clean
