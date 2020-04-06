@@ -39,6 +39,6 @@ script:
   - make install_homebrew
   - export PATH="/usr/local/bin:$PATH"
   - echo $PATH
-  # - brew --version
+  - brew --version
 
   - make clean
