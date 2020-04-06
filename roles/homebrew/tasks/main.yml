@@ -27,7 +27,7 @@
   command: "{{ install_brew_script }}"
   args:
     chdir: "{{ ansible_env.HOME }}"
-  retister: brew_installation
+  register: brew_installation
   when: stat_install_brew.stat is defined and stat_install_brew.stat.exists
 
 - name: Cleanup
