@@ -13,3 +13,8 @@ endif
 
 install_ansible:
 	pip install --user --ignore-installed six ansible
+
+install_commandlinetools:
+	ansible-galaxy install elliotweiser.osx-command-line-tools
+	ansible-playbook main.yml -i inventory
+	ansible-galaxy remove elliotweiser.osx-command-line-tools
