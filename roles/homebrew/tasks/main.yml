@@ -1,0 +1,37 @@
+---
+- name: Get brew path
+  command: which brew
+  register: brew_path
+  changed_when: brew_path is failed
+  ignore_errors: true
+
+- name: Check homebrew installation
+  stat:
+    path: "{{ brew_path.stdout }}"
+  register: brew_current
+  when: not brew_path.stdout
+
+- name: Download homebrew install script
+  get_url:
+    url: "{{ homebrew_download_url }}"
+    dest: "{{ install_brew_script }}"
+    mode: u+rwx
+  when: brew_current.stat is defined and not brew_current.stat.exists
+
+- name: Check install script
+  stat:
+    path: "{{ install_brew_script }}"
+  register: stat_install_brew
+
+- name: Install homebrew
+  command: "{{ install_brew_script }}"
+  args:
+    chdir: "{{ ansible_env.HOME }}"
+  retister: brew_installation
+  when: stat_install_brew.stat is defined and stat_install_brew.stat.exists
+
+- name: Cleanup
+  file:
+    state: absent
+    path: "{{ install_brew_script }}"
+  when: brew_installation.rc is defined and brew_installation.rc == 0.

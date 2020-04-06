@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - role: elliotweiser.osx-command-line-tools
+      tags: [bootstrap, command-line-tools]
+
+    - role: homebrew
+      tags: [bootstrap, homebrew]
