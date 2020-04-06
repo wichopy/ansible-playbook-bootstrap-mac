@@ -24,7 +24,6 @@
   register: stat_install_brew
 
 - name: Install homebrew
-  command: "{{ install_brew_script }}"
   args:
     chdir: "{{ ansible_env.HOME }}"
   register: brew_installation
