@@ -1,0 +1,5 @@
+- name: Install homebrew
+  shell: >
+    /bin/bash -c "$(curl -fsSL {{ homebrew_download_url }})" < /dev/null
+  register: brew_installed
+  changed_when: brew_installed is failed
