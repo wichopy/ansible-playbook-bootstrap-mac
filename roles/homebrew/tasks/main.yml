@@ -34,4 +34,3 @@
   file:
     state: absent
     path: "{{ install_brew_script }}"
-  when: brew_installation.rc is defined and brew_installation.rc == 0.
