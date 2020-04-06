@@ -24,8 +24,10 @@
   register: stat_install_brew
 
 - name: Install homebrew
+  command: /bin/bash "{{ install_brew_script }}" < /dev/null
   args:
     chdir: "{{ ansible_env.HOME }}"
+    creates: /usr/local/bin/brew
   register: brew_installation
   when: stat_install_brew.stat is defined and stat_install_brew.stat.exists
 
