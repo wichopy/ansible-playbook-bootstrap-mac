@@ -34,6 +34,7 @@ script:
   - make install_commandlinetools
   - xcode-select -p
 
+  - hash brew 2>/dev/null || { echo >&2 "homebrew not installed.";
   - make install_homebrew
   - brew --version
 
