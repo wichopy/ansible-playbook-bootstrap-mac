@@ -24,7 +24,6 @@ script:
   - export PATH="$HOME/Library/Python/2.7/bin:$PATH"
   - make install_pip
   - hash pip 2>/dev/null || { echo >&2 "pip not installed. Aborting."; exit 1; }
-  - which pip
   - pip --version
 
   - make install_ansible
@@ -34,6 +33,11 @@ script:
   - ansible --version
 
   - make install_commandlinetools
-  - xcode-select -p
 
   - make install_homebrew
+
+  - make install_python3
+  - export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+  - export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+  - python --version
+  - ansible --version
