@@ -7,16 +7,6 @@ jobs:
       osx_image: xcode10.1
       language: minimal
 
-before_install:
-  - URL=https://raw.githubusercontent.com/Homebrew/install/master/uninstall
-  - curl -sLO "${URL}"
-  - chmod +x uninstall
-  - ./uninstall --force
-  - rm -rf /usr/local/Homebrew
-  - sudo rm -rf /usr/local/Caskroom
-  - sudo rm -rf /usr/local/bin/brew
-  - sudo rm -rf /Library/Developer/CommandLineTools
-
 install:
   - printf '[defaults]\nroles_path=./roles/\ninventory = inventory' > ansible.cfg
 
@@ -30,11 +20,6 @@ script:
 
   - make install_galaxy_roles
   - make install_commandlinetools
-
-  - make install_homebrew
-  - export PATH="/usr/local/bin:$PATH"
-  - ls -las /usr/local/Homebrew/
-  
   - make install_python3
 
   - export PATH="/usr/local/opt/python/libexec/bin:$PATH"
