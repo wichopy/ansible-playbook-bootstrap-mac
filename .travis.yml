@@ -30,7 +30,11 @@ script:
 
   - make install_galaxy_roles
   - make install_commandlinetools
+
   - make install_homebrew
+  - export PATH="/usr/local/bin:$PATH"
+  - ls -las /usr/local/Homebrew/
+  
   - make install_python3
 
   - export PATH="/usr/local/opt/python/libexec/bin:$PATH"
