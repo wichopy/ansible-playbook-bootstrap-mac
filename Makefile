@@ -5,6 +5,7 @@ PYTHON3_PATH := $(HOME)/Library/Python/3.7/bin
 .PHONY: \
 	install_pip \
 	install_ansible \
+	install_galaxy_roles \
 	install_python3 \
 	clean
 
@@ -18,15 +19,16 @@ endif
 install_ansible:
 	@export PATH="$(PYTHON_PATH):$$PATH"; pip install --user --ignore-installed six ansible
 
+install_galaxy_roles:
+	ansible-galaxy install -r requirements.yml
+
 install_commandlinetools:
-	ansible-galaxy install elliotweiser.osx-command-line-tools
 	ansible-playbook main.yml -i inventory --tags "command-line-tools"
 
 install_homebrew:
 	ansible-playbook main.yml -i inventory --tags "homebrew"
 
 install_python3:
-	ansible-galaxy install martianplatypus.python_mac
 	ansible-playbook main.yml -i inventory --tags "python3"
 	@export PATH="$(PYTHON3_PATH):$$PATH"; pip3 install --user --ignore-installed six ansible
 
