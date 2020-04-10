@@ -3,7 +3,7 @@ ansible-playbook-bootstrap-mac
 [![Build Status][badge-travis]][link-travis]
 [![MIT Licensed][badge-license]][link-license]
 
-Prepare your Mac to be managed by Ansible. This Playbook will install the essential tools to get started using your mac for development: OS X Command Line Tools, Homebrew and Python 3.
+This playbook will install the essential tools most developers need to get started writing code on a Mac: OS X Command Line Tools, Homebrew and Python 3.
 
 Getting started
 ------------
@@ -18,7 +18,17 @@ make install
 ```
 
 #### Behind the scenes
-First, `make install` will check if pip is required. If so, it downloads the installer from the official repository. Once pip is setup, the script will continue to install ansible. Next, the script will install roles two roles from ansible-galaxy: [elliotweiser.osx-command-line-tools][link-galaxy-clt] and [martianplatypus.python_mac][link-galaxy-python3]. After installing these roles locally, OS X Command Line Tools, Homebrew and Python 3 will be installed on your Mac.
+First, `make install` checks if pip is configured. If not, it downloads the installer from the official repository.
+
+Next, the script installs ansible as a Python module.
+
+After that, the following roles are installed from ansible-galaxy:
+* [elliotweiser.osx-command-line-tools][link-galaxy-clt]
+* [martianplatypus.python_mac][link-galaxy-python3]
+
+Once the playbook requirements are met, the script will proceed to install OS X Command Line Tools, Homebrew and Python 3 on your Mac.
+
+Each step can be executed separately. See the Makefile options for more details.
 
  [badge-license]: https://img.shields.io/github/license/martianplatypus/ansible-playbook-bootstrap-mac
  [badge-travis]: https://img.shields.io/travis/com/martianplatypus/ansible-playbook-bootstrap-mac
