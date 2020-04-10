@@ -29,9 +29,12 @@ After that, the following roles are installed from ansible-galaxy:
 Once the playbook requirements are met, the script will proceed to install OS X Command Line Tools, Homebrew and Python 3 on your Mac.
 
 Each step can be executed separately. See the Makefile options for more details.
+___
+This playbook implementation was heavily inspired by mpereira's [macbook-playbook][link-mpereira-macbook-playbook].
 
  [badge-license]: https://img.shields.io/github/license/martianplatypus/ansible-playbook-bootstrap-mac
  [badge-travis]: https://img.shields.io/travis/com/martianplatypus/ansible-playbook-bootstrap-mac
+ [link-mpereira-macbook-playbook]: [https://github.com/mpereira/macbook-playbook]
  [link-galaxy-clt]: https://galaxy.ansible.com/elliotweiser/osx-command-line-tools
  [link-galaxy-python3]: https://galaxy.ansible.com/martianplatypus/python_mac
  [link-license]: https://github.com/martianplatypus/ansible-playbook-bootstrap-mac/blob/master/LICENSE
