@@ -28,13 +28,13 @@ install_ansible:
 	@export PATH="$(PYTHON_PATH):$$PATH"; pip install --user --ignore-installed six ansible
 
 install_galaxy_roles:
-	ansible-galaxy install -r requirements.yml
+	@export PATH="$(PYTHON_PATH):$$PATH"; ansible-galaxy install -r requirements.yml
 
 install_commandlinetools:
-	ansible-playbook main.yml -i inventory --tags "command-line-tools"
+	@export PATH="$(PYTHON_PATH):$$PATH"; ansible-playbook main.yml -i inventory --tags "command-line-tools"
 
 install_homebrew:
-	ansible-playbook main.yml -i inventory --tags "homebrew"
+	@export PATH="$(PYTHON_PATH):$$PATH"; ansible-playbook main.yml -i inventory --tags "homebrew"
 
 install_python3:
 	ansible-playbook main.yml -i inventory --tags "python3"
