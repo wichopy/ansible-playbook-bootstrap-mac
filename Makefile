@@ -41,5 +41,5 @@ install_python3:
 	@export PATH="$(PYTHON3_PATH):$$PATH"; pip3 install --user --ignore-installed six ansible
 
 clean:
-	ansible-galaxy remove elliotweiser.osx-command-line-tools
-	ansible_galaxy remove martianplatypus.python_mac
+	@export PATH="$(PYTHON3_PATH):$$PATH"; ansible-galaxy remove elliotweiser.osx-command-line-tools
+	@export PATH="$(PYTHON3_PATH):$$PATH"; ansible_galaxy remove martianplatypus.python_mac
