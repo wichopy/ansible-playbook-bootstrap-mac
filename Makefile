@@ -37,7 +37,7 @@ install_homebrew:
 	@export PATH="$(PYTHON_PATH):$$PATH"; ansible-playbook main.yml -i inventory --tags "homebrew"
 
 install_python3:
-	ansible-playbook main.yml -i inventory --tags "python3"
+	@export PATH="$(PYTHON_PATH):$$PATH"; ansible-playbook main.yml -i inventory --tags "python3"
 	@export PATH="$(PYTHON3_PATH):$$PATH"; pip3 install --user --ignore-installed six ansible
 
 clean:
